@@ -131,8 +131,8 @@ def gerar_termos_llm(texto_original, termos_dicionario, num_termos):
 
 st.title("Teste de Carregamento de Dicionário TXT")
 
-# 1. Carrega o dicionário
-arquivo_txt = "dicionario_termos.txt"
+# 1. Carrega o dicionário com o nome de arquivo ajustado
+arquivo_txt = "saude_dicionario.txt"
 termo_dicionario_txt, mapa_hierarquia_txt = carregar_dicionario_termos(arquivo_txt)
 
 if not termo_dicionario_txt:
@@ -158,7 +158,6 @@ else:
 
     if st.button("Gerar Termos"):
         with st.spinner('Gerando...'):
-            # Substituindo a função mock pela real do Gemini
             termos_sugeridos_brutos = gerar_termos_llm(texto_proposicao, termo_dicionario_txt, num_termos)
             
             st.write("---")
